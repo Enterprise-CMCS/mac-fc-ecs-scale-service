@@ -42,10 +42,10 @@ scale-up-ecs:
   runs-on: ubuntu-latest
   steps:
     - name: scale-ecs-service
-      uses: ben-harvey/scale-ecs-service
+      uses: Enterprise-CMCS/scale-ecs-service
       with:
-        cluster: gh-runner-6d81a626-1844-5df5-a3e3-cbbbeab84233
-        service: gh-runner-6d81a626-1844-5df5-a3e3-cbbbeab84233
+        cluster: example-cluster-name
+        service: example-service-name
         desired-count: 1
 
 example-self-hosted-job:
@@ -61,10 +61,10 @@ scale-down-ecs:
   needs: [scale-up-ecs, example-self-hosted-job]
   runs-on: ubuntu-latest
   steps:
-    - name: scale-ecs-service
-      uses: ben-harvey/scale-ecs-service
+- name: scale-ecs-service
+      uses: Enterprise-CMCS/scale-ecs-service
       with:
-        cluster: gh-runner-6d81a626-1844-5df5-a3e3-cbbbeab84233
-        service: gh-runner-6d81a626-1844-5df5-a3e3-cbbbeab84233
+        cluster: example-cluster-name
+        service: example-service-name
         desired-count: 0
 ```
